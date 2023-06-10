@@ -5,11 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.TvFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="test2"/>
-
     <ImageView
         android:id="@+id/notflix_logo"
         android:layout_width="100dp"
