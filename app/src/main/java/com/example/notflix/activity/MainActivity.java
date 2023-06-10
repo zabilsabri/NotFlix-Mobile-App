@@ -1,4 +1,4 @@
-package com.example.notflix;
+package com.example.notflix.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -6,6 +6,11 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.widget.ImageButton;
+
+import com.example.notflix.R;
+import com.example.notflix.fragments.FavoriteFragment;
+import com.example.notflix.fragments.MovieFragment;
+import com.example.notflix.fragments.TvFragment;
 
 public class MainActivity extends AppCompatActivity {
 

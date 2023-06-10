@@ -1,8 +1,10 @@
-package com.example.notflix;
+package com.example.notflix.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.notflix.R;
 
 public class DetailActivity extends AppCompatActivity {
 
