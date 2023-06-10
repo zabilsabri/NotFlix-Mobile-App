@@ -52,11 +52,11 @@ public class MovieFragment extends Fragment {
         pb_putar = view.findViewById(R.id.loading);
 
         rv_movies.setHasFixedSize(true);
+        logo.setVisibility(View.VISIBLE);
+        pb_putar.setVisibility(View.VISIBLE);
         ApiConfig.getApiService().getMovies(ApiConfig.getKey()).enqueue(new Callback<MovieResponse>() {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
-                logo.setVisibility(View.VISIBLE);
-                pb_putar.setVisibility(View.VISIBLE);
                 if (response.isSuccessful() && response.body() != null){
                     logo.setVisibility(View.GONE);
                     pb_putar.setVisibility(View.GONE);

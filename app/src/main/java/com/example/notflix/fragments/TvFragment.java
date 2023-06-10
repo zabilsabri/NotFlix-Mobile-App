@@ -50,11 +50,11 @@ public class TvFragment extends Fragment {
         pb_putar = view.findViewById(R.id.loading);
 
         rv_tv.setHasFixedSize(true);
+        logo.setVisibility(View.VISIBLE);
+        pb_putar.setVisibility(View.VISIBLE);
         ApiConfig.getApiService().getTvs(ApiConfig.getKey()).enqueue(new Callback<TvResponse>() {
             @Override
             public void onResponse(Call<TvResponse> call, Response<TvResponse> response) {
-                logo.setVisibility(View.VISIBLE);
-                pb_putar.setVisibility(View.VISIBLE);
                 if (response.isSuccessful() && response.body() != null){
                     logo.setVisibility(View.GONE);
                     pb_putar.setVisibility(View.GONE);
