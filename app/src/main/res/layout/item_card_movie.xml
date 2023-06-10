@@ -16,17 +16,17 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/poster"
+                android:id="@+id/mv_poster"
                 android:layout_width="170dp"
                 android:layout_height="200dp"
                 android:src="@drawable/ic_launcher_background"
                 android:scaleType="centerCrop"/>
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/mv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/poster"
+                android:layout_below="@id/mv_poster"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="10dp"
                 android:text="Spiderman VS Polisi"
@@ -36,10 +36,10 @@
                 android:maxLines="1" />
 
             <TextView
-                android:id="@+id/release"
+                android:id="@+id/mv_release"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/title"
+                android:layout_below="@id/mv_title"
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="5dp"
                 android:text="10-05-2003" />
