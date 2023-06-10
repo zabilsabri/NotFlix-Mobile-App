@@ -1,5 +1,6 @@
 package com.example.notflix.adapter;
 
+import android.content.Intent;
 import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.notflix.R;
+import com.example.notflix.activity.DetailActivity;
 import com.example.notflix.models.ModelsMovie;
 import com.example.notflix.response.MovieResponse;
 
@@ -39,6 +41,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         holder.tv_title.setText(modelMovie.getTitle());
         Glide.with(holder.itemView.getContext()).load("https://image.tmdb.org/t/p/w500" + modelMovie.getImagePoster()).into(holder.iv_poster);
         holder.tv_year.setText(modelMovie.getReleaseDate());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(holder.itemView.getContext(), DetailActivity.class);
+                intent.putExtra("synopsis", modelMovie.getOverview());
+                intent.putExtra("title", modelMovie.getTitle());
+                intent.putExtra("ratings", modelMovie.getVote_average());
+                intent.putExtra("poster", modelMovie.getImagePoster());
+                intent.putExtra("backdrop", modelMovie.getBackdrop_path());
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
