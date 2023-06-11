@@ -32,7 +32,7 @@ public class DetailActivity extends AppCompatActivity {
         String backdrop = getIntent().getStringExtra("backdrop");
 
         tv_title.setText(title);
-        tv_ratings.setText(ratings);
+        tv_ratings.setText("Ratings: " + ratings + "/10");
         tv_sysnopsis.setText(sysnopsis);
         Glide.with(DetailActivity.this).load("https://image.tmdb.org/t/p/w500" + poster).into(iv_poster);
         Glide.with(DetailActivity.this).load("https://image.tmdb.org/t/p/w500" + backdrop).into(iv_backdrop);

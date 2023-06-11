@@ -37,7 +37,7 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull TvAdapter.ViewHolder holder, int position) {
         ModelsTv modelTv = tv.get(position);
         holder.tv_title.setText(modelTv.getName());
-        Glide.with(holder.itemView.getContext()).load("https://image.tmdb.org/t/p/w500" + modelTv.getBackdrop_path()).into(holder.iv_poster);
+        Glide.with(holder.itemView.getContext()).load("https://image.tmdb.org/t/p/w500" + modelTv.getImagePoster()).into(holder.iv_poster);
         holder.tv_year.setText(modelTv.getFirstAirDate());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +47,7 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.ViewHolder> {
                 intent.putExtra("title", modelTv.getName());
                 intent.putExtra("ratings", modelTv.getVote_average());
                 intent.putExtra("backdrop", modelTv.getBackdrop_path());
+                intent.putExtra("poster", modelTv.getImagePoster());
                 holder.itemView.getContext().startActivity(intent);
             }
         });

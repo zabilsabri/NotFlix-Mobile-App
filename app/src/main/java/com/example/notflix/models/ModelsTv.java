@@ -34,6 +34,10 @@ public class ModelsTv {
         return backdrop_path;
     }
 
+    public String getImagePoster() {
+        return imagePoster;
+    }
+
     public String getOverview() {
         return overview;
     }
