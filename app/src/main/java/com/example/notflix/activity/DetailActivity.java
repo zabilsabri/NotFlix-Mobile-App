@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,11 +31,13 @@ import java.util.concurrent.Executors;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private ImageView iv_backdrop, iv_poster, iv_logo;
+    private ImageView iv_backdrop, iv_poster;
     private TextView tv_sysnopsis, tv_title, tv_ratings, tv_category;
     private int id_item;
     private static String id_item_str, sysnopsis, title, ratings, poster, backdrop, date, category;
     private NotflixHelper notflixHelper;
+    private ImageButton ib_btn_back;
+    private Button iv_logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,7 @@ public class DetailActivity extends AppCompatActivity {
         tv_ratings = findViewById(R.id.Rating);
         iv_logo = findViewById(R.id.favorite);
         tv_category = findViewById(R.id.category);
+        ib_btn_back = findViewById(R.id.btn_back);
 
         sysnopsis = getIntent().getStringExtra("synopsis");
         title = getIntent().getStringExtra("title");
@@ -60,10 +65,17 @@ public class DetailActivity extends AppCompatActivity {
         id_item_str = Integer.toString(id_item);
         System.out.println(id_item_str);
 
+        ib_btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         tv_title.setText(title);
-        tv_category.setText(category);
         tv_ratings.setText("Ratings: " + ratings + "/10");
         tv_sysnopsis.setText(sysnopsis);
+        tv_category.setText(category);
         Glide.with(DetailActivity.this).load("https://image.tmdb.org/t/p/w500" + poster).into(iv_poster);
         Glide.with(DetailActivity.this).load("https://image.tmdb.org/t/p/w500" + backdrop).into(iv_backdrop);
 
@@ -73,6 +85,7 @@ public class DetailActivity extends AppCompatActivity {
     private void ambilDatabase(){
         new LoadNotflixAsync(this, notflixs -> {
             if (notflixs.size() == 0) {
+                iv_logo.setText("ADD");
                 iv_logo.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -95,6 +108,7 @@ public class DetailActivity extends AppCompatActivity {
                     }
                 });
             } else {
+                iv_logo.setText("Remove");
                 iv_logo.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

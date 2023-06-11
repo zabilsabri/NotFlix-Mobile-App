@@ -18,30 +18,33 @@
         android:layout_height="64dp"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:gravity="center"
-        android:background="#595260">
+        android:background="@color/black"
+        android:gravity="center">
 
         <ImageButton
             android:id="@+id/movieButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher_round" />
+            android:backgroundTint="@color/black"
+            android:src="@drawable/baseline_movie_24" />
 
         <ImageButton
             android:id="@+id/tvButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
             android:layout_marginLeft="80dp"
             android:layout_toRightOf="@+id/movieButton"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/baseline_live_tv_24" />
 
         <ImageButton
             android:id="@+id/favoriteButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="80dp"
+            android:backgroundTint="@color/black"
             android:layout_toRightOf="@+id/tvButton"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/baseline_favorite_border_24" />
 
     </RelativeLayout>
 

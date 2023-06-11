@@ -3,8 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.MovieFragment">
+
+    <LinearLayout
+        android:id="@+id/jdul"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/black"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Movies"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:textSize="25dp"/>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/notflix_logo"
+        android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/notflix_logo"
@@ -14,19 +42,12 @@
         android:visibility="gone"
         android:src="@drawable/notflix"/>
 
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/notflix_logo"
-        android:layout_centerInParent="true"
-        android:visibility="gone"/>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_movie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/item_card_movie"
+        android:layout_below="@id/jdul"
         android:padding="5dp"/>
 
 </RelativeLayout>
