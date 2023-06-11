@@ -12,6 +12,7 @@ public class DatabaseContract {
         public static String SINOPSIS = "sinopsis";
         public static String DATE = "date";
         public static String ID_ITEM = "ID_ITEM";
+        public static String CATEGORY = "category";
 
     }
 }

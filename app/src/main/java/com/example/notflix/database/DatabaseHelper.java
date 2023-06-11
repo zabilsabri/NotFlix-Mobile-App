@@ -18,6 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                             + " %s TEXT NOT NULL,"
                             + " %s TEXT NOT NULL,"
                             + " %s TEXT NOT NULL,"
+                            + " %s TEXT NOT NULL,"
                             + " %s TEXT NOT NULL)",
                     DatabaseContract.TABLE_NAME,
                     DatabaseContract.NotflixColumns._ID,
@@ -27,7 +28,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     DatabaseContract.NotflixColumns.POSTER,
                     DatabaseContract.NotflixColumns.BACKDROP,
                     DatabaseContract.NotflixColumns.SINOPSIS,
-                    DatabaseContract.NotflixColumns.ID_ITEM
+                    DatabaseContract.NotflixColumns.ID_ITEM,
+                    DatabaseContract.NotflixColumns.CATEGORY
             );
 
     public DatabaseHelper(Context context) {

@@ -30,9 +30,9 @@ import java.util.concurrent.Executors;
 public class DetailActivity extends AppCompatActivity {
 
     private ImageView iv_backdrop, iv_poster, iv_logo;
-    private TextView tv_sysnopsis, tv_title, tv_ratings;
+    private TextView tv_sysnopsis, tv_title, tv_ratings, tv_category;
     private int id_item;
-    private static String id_item_str, sysnopsis, title, ratings, poster, backdrop, date;
+    private static String id_item_str, sysnopsis, title, ratings, poster, backdrop, date, category;
     private NotflixHelper notflixHelper;
 
     @Override
@@ -47,6 +47,7 @@ public class DetailActivity extends AppCompatActivity {
         tv_sysnopsis = findViewById(R.id.synopsis);
         tv_ratings = findViewById(R.id.Rating);
         iv_logo = findViewById(R.id.favorite);
+        tv_category = findViewById(R.id.category);
 
         sysnopsis = getIntent().getStringExtra("synopsis");
         title = getIntent().getStringExtra("title");
@@ -55,8 +56,12 @@ public class DetailActivity extends AppCompatActivity {
         backdrop = getIntent().getStringExtra("backdrop");
         date = getIntent().getStringExtra("date");
         id_item = getIntent().getIntExtra("id_item", 0);
+        category = getIntent().getStringExtra("category");
         id_item_str = Integer.toString(id_item);
+        System.out.println(id_item_str);
 
+        tv_title.setText(title);
+        tv_category.setText(category);
         tv_ratings.setText("Ratings: " + ratings + "/10");
         tv_sysnopsis.setText(sysnopsis);
         Glide.with(DetailActivity.this).load("https://image.tmdb.org/t/p/w500" + poster).into(iv_poster);
@@ -79,6 +84,7 @@ public class DetailActivity extends AppCompatActivity {
                         values.put(DatabaseContract.NotflixColumns.BACKDROP, backdrop);
                         values.put(DatabaseContract.NotflixColumns.POSTER, poster);
                         values.put(DatabaseContract.NotflixColumns.ID_ITEM, id_item);
+                        values.put(DatabaseContract.NotflixColumns.CATEGORY, category);
                         long result = notflixHelper.insert(values);
                         if (result > 0) {
                             Toast.makeText(DetailActivity.this, "Berhasil Menambahkan Favorite", Toast.LENGTH_SHORT).show();

@@ -7,12 +7,13 @@ import androidx.annotation.NonNull;
 
 public class Notflix implements Parcelable {
     private int id;
-    private String title, ratings, sinopsis, date, backdrop, poster, id_item;
+    private String title, ratings, sinopsis, date, backdrop, poster, id_item_str, category;
+    private int id_item;
 
     public Notflix(){
 
     }
-    public Notflix(int id, String title, String ratings, String sinopsis, String date, String backdrop, String poster, String id_item) {
+    public Notflix(int id, String title, String ratings, String sinopsis, String date, String backdrop, String poster, String id_item_str, String category) {
         this.id = id;
         this.title = title;
         this.ratings = ratings;
@@ -20,7 +21,8 @@ public class Notflix implements Parcelable {
         this.date = date;
         this.backdrop = backdrop;
         this.poster = poster;
-        this.id_item = id_item;
+        this.id_item_str = id_item_str;
+        this.category = category;
     }
 
     protected Notflix(Parcel in) {
@@ -31,7 +33,8 @@ public class Notflix implements Parcelable {
         date = in.readString();
         backdrop = in.readString();
         poster = in.readString();
-        id_item = in.readString();
+        id_item_str = in.readString();
+        category = in.readString();
     }
 
     public static final Creator<Notflix> CREATOR = new Creator<Notflix>() {
@@ -102,12 +105,21 @@ public class Notflix implements Parcelable {
         this.poster = poster;
     }
 
-    public String getId_item() {
+    public int getId_item() {
+        id_item = Integer.parseInt(id_item_str);
         return id_item;
     }
 
     public void setId_item(String id_item) {
-        this.id_item = id_item;
+        this.id_item_str = id_item_str;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     @Override

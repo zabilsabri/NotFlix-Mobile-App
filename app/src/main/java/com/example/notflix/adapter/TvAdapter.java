@@ -50,6 +50,7 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.ViewHolder> {
                 intent.putExtra("poster", modelTv.getImagePoster());
                 intent.putExtra("id_item", modelTv.getId());
                 intent.putExtra("date", modelTv.getFirstAirDate());
+                intent.putExtra("category", "TV Shows");
                 holder.itemView.getContext().startActivity(intent);
             }
         });

@@ -1,5 +1,6 @@
 package com.example.notflix.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.notflix.R;
+import com.example.notflix.activity.DetailActivity;
 import com.example.notflix.database.Notflix;
 
 import java.util.List;
@@ -36,7 +38,24 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         holder.tv_title.setText(notflix.getTitle());
         holder.tv_year.setText(notflix.getDate());
         holder.tv_ratings.setText("Ratings: " + notflix.getRatings());
+        holder.tv_category.setText(notflix.getCategory());
         Glide.with(holder.itemView.getContext()).load("https://image.tmdb.org/t/p/w500" + notflix.getPoster()).into(holder.iv_poster);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(holder.itemView.getContext(), DetailActivity.class);
+                intent.putExtra("synopsis", notflix.getSinopsis());
+                intent.putExtra("title", notflix.getTitle());
+                intent.putExtra("ratings", notflix.getRatings());
+                intent.putExtra("poster", notflix.getPoster());
+                intent.putExtra("backdrop", notflix.getBackdrop());
+                intent.putExtra("id_item", notflix.getId_item());
+                intent.putExtra("date", notflix.getDate());
+                intent.putExtra("category", notflix.getCategory());
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -47,7 +66,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView iv_poster;
-        TextView tv_title, tv_year, tv_ratings;
+        TextView tv_title, tv_year, tv_ratings, tv_category;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -55,6 +74,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
             tv_title = itemView.findViewById(R.id.tv_title_f);
             tv_year = itemView.findViewById(R.id.release_f);
             tv_ratings = itemView.findViewById(R.id.rating_f);
+            tv_category = itemView.findViewById(R.id.category_f);
         }
     }
 }

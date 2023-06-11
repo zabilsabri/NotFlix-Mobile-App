@@ -16,7 +16,8 @@ public class MappingHelper {
             String backdrop = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.NotflixColumns.BACKDROP));
             String poster = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.NotflixColumns.POSTER));
             String id_item = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.NotflixColumns.ID_ITEM));
-            notflixs.add(new Notflix(id, title, ratings, sinopsis, date, backdrop, poster, id_item));
+            String category = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.NotflixColumns.CATEGORY));
+            notflixs.add(new Notflix(id, title, ratings, sinopsis, date, backdrop, poster, id_item, category));
         }
         return notflixs;
     }

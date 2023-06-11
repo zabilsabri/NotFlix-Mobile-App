@@ -49,6 +49,18 @@
             android:ellipsize="end"
             android:maxLines="1"/>
 
+        <TextView
+            android:id="@+id/category_f"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/release_f"
+            android:text="tgl release"
+            android:layout_toRightOf="@+id/image_poster"
+            android:layout_marginLeft="16dp"
+            android:textStyle="italic"
+            android:textSize="18sp"
+            android:ellipsize="end"/>
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
