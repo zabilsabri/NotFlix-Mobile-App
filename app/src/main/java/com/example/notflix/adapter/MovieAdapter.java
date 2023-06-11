@@ -50,6 +50,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 intent.putExtra("ratings", modelMovie.getVote_average());
                 intent.putExtra("poster", modelMovie.getImagePoster());
                 intent.putExtra("backdrop", modelMovie.getBackdrop_path());
+                intent.putExtra("id_item", modelMovie.getId());
+                intent.putExtra("date", modelMovie.getReleaseDate());
                 holder.itemView.getContext().startActivity(intent);
             }
         });

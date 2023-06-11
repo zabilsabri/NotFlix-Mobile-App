@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:elevation="6dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp">
+
+        <ImageView
+            android:id="@+id/image_poster"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/notflix"/>
+
+        <TextView
+            android:id="@+id/tv_title_f"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:layout_toRightOf="@+id/image_poster"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="16dp"/>
+
+
+        <TextView
+            android:id="@+id/rating_f"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Created At: "
+            android:layout_toRightOf="@+id/image_poster"
+            android:layout_below="@id/tv_title_f"
+            android:textSize="12sp"
+            android:layout_marginLeft="16dp"/>
+
+        <TextView
+            android:id="@+id/release_f"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rating_f"
+            android:text="tgl release"
+            android:layout_toRightOf="@+id/image_poster"
+            android:layout_marginLeft="16dp"
+            android:textSize="15sp"
+            android:ellipsize="end"
+            android:maxLines="1"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
